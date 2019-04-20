@@ -11,6 +11,7 @@ Source1  : http://http.debian.net/debian/pool/main/libm/libmodule-extract-perl/l
 Summary  : Base class for working with Perl distributions
 Group    : Development/Tools
 License  : Artistic-1.0 Artistic-1.0-Perl GPL-2.0
+Requires: perl-Module-Extract-license = %{version}-%{release}
 BuildRequires : buildreq-cpan
 BuildRequires : perl(Archive::Extract)
 BuildRequires : perl(Module::Install)
@@ -20,6 +21,24 @@ NAME
 Module::Extract - Base class for working with Perl distributions
 SYNOPSIS
 Creating a Module::Extract subclass.
+
+%package dev
+Summary: dev components for the perl-Module-Extract package.
+Group: Development
+Provides: perl-Module-Extract-devel = %{version}-%{release}
+Requires: perl-Module-Extract = %{version}-%{release}
+
+%description dev
+dev components for the perl-Module-Extract package.
+
+
+%package license
+Summary: license components for the perl-Module-Extract package.
+Group: Default
+
+%description license
+license components for the perl-Module-Extract package.
+
 
 %prep
 %setup -q -n Module-Extract-0.01
@@ -64,3 +83,12 @@ find %{buildroot} -type f -name '*.bs' -empty -exec rm -f {} ';'
 
 %files
 %defattr(-,root,root,-)
+/usr/lib/perl5/vendor_perl/5.28.2/Module/Extract.pm
+
+%files dev
+%defattr(-,root,root,-)
+/usr/share/man/man3/Module::Extract.3
+
+%files license
+%defattr(0644,root,root,0755)
+/usr/share/package-licenses/perl-Module-Extract/LICENSE
