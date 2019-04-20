@@ -4,14 +4,13 @@
 #
 Name     : perl-Module-Extract
 Version  : 0.01
-Release  : 11
+Release  : 12
 URL      : https://cpan.metacpan.org/authors/id/A/AD/ADAMK/Module-Extract-0.01.tar.gz
 Source0  : https://cpan.metacpan.org/authors/id/A/AD/ADAMK/Module-Extract-0.01.tar.gz
 Source1  : http://http.debian.net/debian/pool/main/libm/libmodule-extract-perl/libmodule-extract-perl_0.01-2.debian.tar.xz
 Summary  : Base class for working with Perl distributions
 Group    : Development/Tools
 License  : Artistic-1.0 Artistic-1.0-Perl GPL-2.0
-Requires: perl-Module-Extract-license = %{version}-%{release}
 BuildRequires : buildreq-cpan
 BuildRequires : perl(Archive::Extract)
 BuildRequires : perl(Module::Install)
@@ -22,29 +21,12 @@ Module::Extract - Base class for working with Perl distributions
 SYNOPSIS
 Creating a Module::Extract subclass.
 
-%package dev
-Summary: dev components for the perl-Module-Extract package.
-Group: Development
-Provides: perl-Module-Extract-devel = %{version}-%{release}
-
-%description dev
-dev components for the perl-Module-Extract package.
-
-
-%package license
-Summary: license components for the perl-Module-Extract package.
-Group: Default
-
-%description license
-license components for the perl-Module-Extract package.
-
-
 %prep
 %setup -q -n Module-Extract-0.01
 cd ..
 %setup -q -T -D -n Module-Extract-0.01 -b 1
 mkdir -p deblicense/
-mv %{_topdir}/BUILD/debian/* %{_topdir}/BUILD/Module-Extract-0.01/deblicense/
+cp -r %{_topdir}/BUILD/debian/* %{_topdir}/BUILD/Module-Extract-0.01/deblicense/
 
 %build
 export http_proxy=http://127.0.0.1:9/
@@ -82,12 +64,3 @@ find %{buildroot} -type f -name '*.bs' -empty -exec rm -f {} ';'
 
 %files
 %defattr(-,root,root,-)
-/usr/lib/perl5/vendor_perl/5.28.1/Module/Extract.pm
-
-%files dev
-%defattr(-,root,root,-)
-/usr/share/man/man3/Module::Extract.3
-
-%files license
-%defattr(0644,root,root,0755)
-/usr/share/package-licenses/perl-Module-Extract/LICENSE
