@@ -4,7 +4,7 @@
 #
 Name     : perl-Module-Extract
 Version  : 0.01
-Release  : 13
+Release  : 14
 URL      : https://cpan.metacpan.org/authors/id/A/AD/ADAMK/Module-Extract-0.01.tar.gz
 Source0  : https://cpan.metacpan.org/authors/id/A/AD/ADAMK/Module-Extract-0.01.tar.gz
 Source1  : http://http.debian.net/debian/pool/main/libm/libmodule-extract-perl/libmodule-extract-perl_0.01-2.debian.tar.xz
@@ -82,7 +82,7 @@ make TEST_VERBOSE=1 test
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/perl-Module-Extract
 cp %{_builddir}/Module-Extract-0.01/LICENSE %{buildroot}/usr/share/package-licenses/perl-Module-Extract/f11692fc652e231edd2a23a60c72d9be8a840e0c
-cp %{_builddir}/Module-Extract-0.01/deblicense/copyright %{buildroot}/usr/share/package-licenses/perl-Module-Extract/08ecb5a8fbad7bec172ab81d182eccb00b4ec63a
+cp %{_builddir}/debian/copyright %{buildroot}/usr/share/package-licenses/perl-Module-Extract/08ecb5a8fbad7bec172ab81d182eccb00b4ec63a
 if test -f Makefile.PL; then
 make pure_install PERL_INSTALL_ROOT=%{buildroot} INSTALLDIRS=vendor
 else
@@ -107,4 +107,4 @@ find %{buildroot} -type f -name '*.bs' -empty -exec rm -f {} ';'
 
 %files perl
 %defattr(-,root,root,-)
-/usr/lib/perl5/vendor_perl/5.30.1/Module/Extract.pm
+/usr/lib/perl5/vendor_perl/5.30.2/Module/Extract.pm
