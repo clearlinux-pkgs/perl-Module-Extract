@@ -4,7 +4,7 @@
 #
 Name     : perl-Module-Extract
 Version  : 0.01
-Release  : 16
+Release  : 17
 URL      : https://cpan.metacpan.org/authors/id/A/AD/ADAMK/Module-Extract-0.01.tar.gz
 Source0  : https://cpan.metacpan.org/authors/id/A/AD/ADAMK/Module-Extract-0.01.tar.gz
 Source1  : http://http.debian.net/debian/pool/main/libm/libmodule-extract-perl/libmodule-extract-perl_0.01-2.debian.tar.xz
@@ -107,4 +107,4 @@ find %{buildroot} -type f -name '*.bs' -empty -exec rm -f {} ';'
 
 %files perl
 %defattr(-,root,root,-)
-/usr/lib/perl5/vendor_perl/5.32.1/Module/Extract.pm
+/usr/lib/perl5/vendor_perl/5.34.0/Module/Extract.pm
